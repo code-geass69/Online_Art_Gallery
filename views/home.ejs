@@ -32,35 +32,22 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="flex justify-between px-3 text-white bg-black items-center h-[70px]"
-        style="font-family: 'Alfa Slab One', cursive;">
-        <div class="text-lg ">a_raandom_artist</div>
-        <ul class="flex flex-grow justify-center mr-20 items-center gap-7">
-            <li><a href="#" class="">Home</a></li>
-            <li><a href="#" class="">About</a></li>
-            <li class="dropdown relative">
-                <a href="#" class="">Art Type</a>
-                <ul class="dropdown-menu absolute left-0 mt-2 hidden bg-black text-white py-2 rounded-lg shadow-lg">
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Painting</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Sculpture</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Digital Art</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Photography</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Mixed Media</a></li>
-                </ul>
-            </li>
-            <li><a href="#" class="">Contact</a></li>
-        </ul>
-        <img src="images/H.png" alt="Logo" class="h-8 w-8 mr-10 rounded-lg">
-    </nav>
+    <!-- Navbar -->
+    <%- include('partials/navbar') %>
+
+
     <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
     <!-- HEADING SECTION -->
     <section class="relative homepage">
-        <h4 class="mt-[9.5%]">EXPLORE THE <span style="color: #f2dac3da">COLLECTION</span></h4>
+        <h4 class="mt-[9.5%] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">EXPLORE THE
+            <span style="color: #f2dac3da">COLLECTION</span>
+        </h4>
         <div id="background-container" class="background-container relative p-32 h-128 text-center overflow-hidden">
-            <div class="content relative ">
-                <h5 class="text-lg font-bold">Earth Without Art is Just Eh! <br> Atharv More
+            <div class="content relative">
+                <h5 class="text-lg font-bold">
+                    <span class="block md:hidden">Atharv More</span>
+                    <span class="hidden md:block">Earth Without Art is Just Eh! <br> Atharv More</span>
                 </h5>
                 <div class="divider w-1/2 h-0.5 bg-black mb-[50%] mx-auto"></div>
             </div>
@@ -108,8 +95,7 @@
         <div
             class="contain flex w-[100%] md:w-[80%] mx-auto justify-center items-center flex-col md:flex-row gap-[50px]">
             <div class="container_body md:w-[60%] w-[80%]">
-                <button
-                    class="py-3 px-6 bg-blue-500 text-white font-semibold rounded-md mt-[120px]">
+                <button class="py-3 px-6 bg-blue-500 text-white font-semibold rounded-md mt-[120px]">
                     Dive In
                 </button>
             </div>
@@ -157,12 +143,8 @@
         </div>
     </div>
 
-    <footer class="text-center my-[50px] text-xl">
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-whatsapp"></i>
-        <p class="font-semibold">@ALL rights reserved</p>
-    </footer>
+    <!-- Footer -->
+    <%- include('partials/footer') %>
 
 </body>
 

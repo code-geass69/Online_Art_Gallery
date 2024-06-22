@@ -51,10 +51,6 @@
     color: whitesmoke;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
 #art h2 {
     font-family: 'Alfa Slab One', cursive;
     font-size: 2rem;
@@ -65,4 +61,12 @@
     font-family: 'Alfa Slab One', cursive;
     font-size: 2rem;
     line-height: 56%;
+}
+
+.dropdown-menu {
+    display: none;
+}
+
+.show {
+    display: block;
 }
