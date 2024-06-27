@@ -66,17 +66,6 @@ html {
     font-size: 2rem;
     line-height: 56%;
 }
-
-.dropdown-menu {
-    display: none;
-}
-
-.show {
-    display: block;
-}
-
-
-
 ::-webkit-scrollbar {
     width: 6px;
     background-color: black;
@@ -107,7 +96,7 @@ html {
 
 .destination-item {
     background-position: center;
-    background-size: auto;
+    background-size:cover;
     background-repeat: no-repeat;
     border-radius: 10px;
     padding: 3em 0;
@@ -140,28 +129,30 @@ html {
 }
 
 .destination-item-1 {
-    background-image: url(../images/img_1.jpeg);
+    background-image: url(../images/sunset-lake-watercolor-scenery.jpg);
     grid-column: span 2;
 }
 
 .destination-item-2 {
-    background-image: url(../images/img_2.jpeg);
+    background-image: url(../images/IMG_20230617_091303_679.jpg);
     grid-row: span 2;
+    background-position: top;
+
 }
 
 .destination-item-3 {
-    background-image: url(../images/img_3.jpeg);
+    background-image: url(../images/Sketch.jpg);
     grid-row: span 2;
     background-position: top;
 }
 
 .destination-item-4 {
-    background-image: url(../images/img-4.jpeg);
+    background-image: url(../images/doodle.jpg);
     grid-column: span 1;
 }
 
 .destination-item-5 {
-    background-image: url(../images/img_5.jpeg);
+    background-image: url(../images/celebs1.jpg);
     grid-column: span 2;
 }
 

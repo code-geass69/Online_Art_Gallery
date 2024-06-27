@@ -3,14 +3,19 @@
 <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
-
-
-
 <style>
     .poppins-semibold {
         font-family: "Poppins", sans-serif;
         font-weight: 600;
         font-style: normal;
+    }
+
+    li a:hover {
+        color: #00c3ff;
+    }
+
+    li a.active {
+        color: #00c3ff;
     }
 </style>
 
@@ -21,17 +26,8 @@
     <ul class="flex flex-grow justify-center mr-20 items-center gap-7">
         <li><a href="/" class="">Home</a></li>
         <li><a href="/about" class="">About</a></li>
-        <li class="dropdown relative">
-            <a href="#" class="dropdown-toggle" id="art-type-dropdown">Art Type</a>
-            <ul class="dropdown-menu absolute left-0 mt-2 bg-black text-white py-2 rounded-lg shadow-lg hidden">
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Painting</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Sculpture</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Digital Art</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Photography</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Mixed Media</a></li>
-            </ul>
-        </li>
-        <li><a href="#" class="">Contact</a></li>
+        <li><a href="#art-types">Art Type</a></li>
+        <li><a href="" class="">Contact</a></li>
     </ul>
     <img src="images/H.png" alt="Logo" class="h-8 w-8 mr-10 rounded-lg hidden md:block lg:block sm:hidden">
 </nav>
