@@ -4,31 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home Page</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                screens: {
-                    xs: "400px",
-                    sm: "640px",
-                    md: "768px",
-                    lg: "1024px",
-                    xl: "1280px",
-                    xxl: "1536px"
-                }
-            }
-        }
-    </script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet" />
+    <script src="/public/js/tailwind-config.js"></script>
+    <%- include('../../components/Links.html') %>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -37,10 +18,7 @@
     <!-- Navbar -->
     <%- include('../partials/navbar') %>
 
-
-        <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
-
-        <!-- HEADING SECTION -->
+    <!-- TITLE SECTION--------------------------------------------------------------------------------- -->
         <section class="relative homepage">
             <h4 class="mt-[9.5%] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">EXPLORE THE
                 <span style="color: #f2dac3da">COLLECTION</span>
@@ -55,10 +33,11 @@
                 </div>
             </div>
         </section>
+ <!-- TITLE SECTION END--------------------------------------------------------------------------------- -->
 
-        <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
-        <!-- MARQUEE QUOTESS -->
+
+<!-- MARQUEE QUOTESS -------------------------------------------------------------------------------------------------------- -->
         <div class="marquee bg-gray-50 text-black py-1 px-4 shadow-lg w-full">
             <div class="marquee-content font-bold">
                 <span class="pl-5">"Art enables us to find ourselves and lose ourselves at the same time" - Thomas
@@ -79,26 +58,34 @@
                     Wilde</span>
             </div>
         </div>
+<!-- MARQUEE QUOTESS END -------------------------------------------------------------------------------------------------------- -->
 
-        <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--HEADING ----------------------------------------------------------------------------------------------------------------------------------------- -->
         <div id="art">
             <div
                 class="contain flex w-[100%] md:w-[80%] mx-auto justify-center items-center flex-col md:flex-row gap-[50px]">
                 <div class="container_body md:w-[60%] w-[80%]">
                     <h2 class="pb-5 pt-[120px] text-center">Welcome</h2>
-                    <p class="text-center">
+                    <p class="">
                         Here, creativity meets passion, bringing to life a vibrant collection of artworks that reflect
-                        unique perspectives and
-                        artistic exploration. Dive into a world of colors, shapes, and stories, where each piece is a
-                        journey through imagination and expression. Whether you're an art enthusiast or a casual
-                        observer, I
-                        invite you to explore my gallery, share your thoughts, and be inspired by the beauty and depth
-                        of
-                        the visual arts. Thank you for visiting, and enjoy the artistic adventure!
+                        unique perspectives and artistic exploration. Dive into a world of colors, shapes, and stories,
+                        where each
+                        piece is a journey through imagination and expression. Whether you're an art enthusiast or a
+                        casual
+                        observer, I invite you to explore my gallery, share your thoughts, and be inspired by the beauty
+                        and depth
+                        of the visual arts. Thank you for visiting, and enjoy the artistic adventure!
                     </p>
                 </div>
+                <div class="image_container md:w-[40%] w-[80%]">
+                    <img src="./welcome.jpeg" class="w-full h-auto">
+                </div>
             </div>
+<!--HEADING END ----------------------------------------------------------------------------------------------------------------------------------------- -->
 
+
+
+<!-- ART TYPES---------------------------------------------------------------------------------------------------------------------------- -->
             <div id="art-types">
                 <section class="section | destination-section mt-[150px]" id="destinations">
                     <h2 class="title"><i class="fa fa-paint-brush"></i>
@@ -125,6 +112,8 @@
                     </div>
                 </section>
             </div>
+
+<!-- ART TYPES END---------------------------------------------------------------------------------------------------------------------------- -->
 
 
 
