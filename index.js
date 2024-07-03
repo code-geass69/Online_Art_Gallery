@@ -4,12 +4,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Contact = require('./models/Contact');
 
-
-
 const app = express();
 const port = 3000;
 app.use(bodyParser.json());
-
 
 mongoose.connect('mongodb://localhost:27017/Online-Art-Gallery')
   .then(() => {
@@ -20,7 +17,6 @@ mongoose.connect('mongodb://localhost:27017/Online-Art-Gallery')
   });
 
 app.set('view engine', 'ejs');
-
 app.set('views', path.join(__dirname, 'views/pages'));
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -35,7 +31,7 @@ app.get('/about', (req, res) => {
 
 app.get('/contact', (req, res) => {
   res.render('contact');
-})
+});
 
 app.post('/contact', async (req, res) => {
   try {
@@ -54,6 +50,22 @@ app.post('/contact', async (req, res) => {
   }
 });
 
+// Update paths for views located in views/pages/utils
+app.get('/canvas', (req, res) => {
+  res.render('utils/canvas');
+});
+app.get('/anime', (req, res) => {
+  res.render('utils/anime');
+});
+app.get('/sketch', (req, res) => {
+  res.render('utils/sketch');
+});
+app.get('/doodles', (req, res) => {
+  res.render('utils/doodles');
+});
+app.get('/celebs', (req, res) => {
+  res.render('utils/celebs');
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
