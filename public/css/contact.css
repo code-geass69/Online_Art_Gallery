@@ -1,10 +1,13 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(0.3deg, rgb(30, 161, 239) 0.9%, rgb(49, 46, 252) 88.6%);
+    background: url('/images/background4.jpg');
+    background-size: cover; /* Adjust as needed */
+    background-position: center; /* Adjust as needed */
     padding-bottom: 100px;
     position: relative;
 }
+
 
 #contact {
     width: 100%;
@@ -16,9 +19,9 @@ body {
     font-family: 'Alfa Slab One', cursive;
     padding: 40px 0;
     color: #000000;
-    letter-spacing: 6px;
-    font-size: 40px;
-    padding-left: 20px;
+    letter-spacing: 2px;
+    font-size: 37px;
+    padding-left: 40px;
 }
 
 .contact-wrapper {
@@ -28,7 +31,7 @@ body {
     margin: 0 auto;
     padding: 20px;
     position: relative;
-    max-width: 840px;
+    max-width: 830px;
 }
 
 .form-horizontal {
@@ -78,20 +81,20 @@ textarea {
 
 .contact-list {
     list-style-type: none;
-    margin-left: -10px;
+    margin-left: -30px;
     padding-right: 20px;
 }
 
 .list-item {
-    line-height: 4;
+    line-height: 3.5;
     color: #100606;
     margin-left: 100px;
 }
 
 .contact-text {
-    font: 300 18px 'Alfa Slab One', cursive;
+    font: 600 18px "Poppins", sans-serif;
     letter-spacing: 1.9px;
-    color: #050101;
+    color: #000000;
 }
 
 .place {
@@ -106,14 +109,8 @@ textarea {
     margin-left: 53px;
 }
 
-.contact-text a {
-    color: #0d0303;
-    text-decoration: none;
-    transition-duration: 0.2s;
-}
-
 .contact-text a:hover {
-    color: #ffffff;
+    color: #0f1bff;
     text-decoration: none;
 }
 

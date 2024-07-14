@@ -226,6 +226,7 @@ main {
 }
 
 .main_text_item {
+    font-family: "Poppins", sans-serif;;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,7 +235,7 @@ main {
     width: 41em;
     margin-top: 1em;
     padding: 0.8em;
-    border-radius: 0.3em;
+    border-radius: 0.6em;
     min-height: 3.7em;
     text-align: center;
 }
