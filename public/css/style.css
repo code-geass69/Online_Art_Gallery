@@ -81,8 +81,6 @@ html {
     border-radius: 6px;
 }
 
-
-
 .title {
     color: rgb(13, 2, 2);
     font-size: 50px;
@@ -138,14 +136,14 @@ html {
 }
 
 .destination-item-2 {
-    background-image: url(../images/IMG_20230617_091303_679.jpg);
+    background-image: url(../images/anime/luffy.jpg);
     grid-row: span 2;
     background-position: top;
 
 }
 
 .destination-item-3 {
-    background-image: url(../images/Sketch.jpg);
+    background-image: url(../images/sketches/8.jpg);
     grid-row: span 2;
     background-position: top;
 }
