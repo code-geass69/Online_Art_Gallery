@@ -5,11 +5,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background: linear-gradient(109.6deg, rgb(48, 207, 208) 11.2%, rgb(51, 8, 103) 92.5%);
-    color: #fff;
-}
-
 .wrapper {
     padding: 10px 10%;
 }
@@ -30,7 +25,8 @@ body {
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.9);
+    border: 3px solid black;
 }
 
 .box img {

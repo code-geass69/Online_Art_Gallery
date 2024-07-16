@@ -136,14 +136,14 @@ html {
 }
 
 .destination-item-2 {
-    background-image: url(../images/anime/luffy.jpg);
+    background-image: url(../images/luffy.jpg);
     grid-row: span 2;
     background-position: top;
 
 }
 
 .destination-item-3 {
-    background-image: url(../images/sketches/8.jpg);
+    background-image: url(../images/sketch.jpg);
     grid-row: span 2;
     background-position: top;
 }
