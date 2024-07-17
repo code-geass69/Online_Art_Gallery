@@ -3,7 +3,6 @@
 Welcome to the Online Art Gallery, where art meets technology in a seamless blend of creativity and functionality. As an artist driven by passion, I've crafted a platform that invites art lovers to immerse themselves in a captivating visual journey.
 Online Art Gallery is not just a website—it's an aesthetic experience. Built with Node.js, EJS templates, Tailwind CSS, and MongoDB, this platform showcases my artwork across various categories. Each piece is presented with care to ensure a user-friendly and engaging interaction.
 
-![Project Image](/path/to/your/image.png)
 
 ## Features
 
@@ -45,4 +44,6 @@ To run this project locally, follow these steps:
 - MongoDB
 
 ## Screenshot
-
+![Screenshot 1](screenshots/Screenshot1.png)
+![Screenshot 2](screenshots/Screenshot2.png)
+![Screenshot 2](screenshots/Screenshot3.png)
