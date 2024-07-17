@@ -2,8 +2,10 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
 const Contact = require('./models/Contact');
 const Admin = require('./models/admin');
+const User = require('./models/User');
 const { initializeApp } = require('firebase/app');
 const { getStorage, ref, uploadBytes, getDownloadURL } = require('firebase/storage');
 
@@ -21,22 +23,6 @@ mongoose.connect('mongodb://localhost:27017/Online-Art-Gallery', {
   console.error('Error connecting to MongoDB', err);
 });
 
-// Create the default admin user if it does not exist
-async function createDefaultAdmin() {
-  try {
-    const admin = await Admin.findOne({ username: 'admin' });
-    if (!admin) {
-      const newAdmin = new Admin({ username: 'admin', password: 'admin' });
-      await newAdmin.save();
-      console.log('Default admin user created');
-    } else {
-      console.log('Default admin user already exists');
-    }
-  } catch (error) {
-    console.error('Error creating default admin user', error);
-  }
-}
-
 const firebaseConfig = {
   apiKey: "AIzaSyDO5FdlnDW-PqXSrBpX_tVho_gBYEWFRFo",
   authDomain: "art-gallery-2003.firebaseapp.com",
@@ -46,7 +32,6 @@ const firebaseConfig = {
   apppId: "1:503377346450:web:c7fd20c9f19b1aab87cb4b"
 };
 
-// Initialize Firebase
 const appp = initializeApp(firebaseConfig);
 
 app.set('view engine', 'ejs');
@@ -103,26 +88,44 @@ app.get('/login', (req, res) => {
   res.render('login');
 });
 
+app.post('/login', async (req, res) => {
+  const { username, email } = req.body;
+
+  try {
+    // Create a new user document
+    const newUser = new User({
+      username,
+      email
+    });
+
+    // Save the user to the database
+    await newUser.save();
+
+    res.render('home')
+  } catch (error) {
+    // console.error('Error creating user:', error);
+    res.status(500).send('Error creating user');
+  }
+});
+
+app.get('/dashboard', (req, res) => {
+  res.render('dashboard');
+});
+
 app.get('/admin/login', (req, res) => {
   res.render('admin');
 });
 
-app.post('/admin/login', async (req, res) => {
+app.post('/admin/login', (req, res) => {
   const { username, password } = req.body;
 
-  try {
-    const admin = await Admin.findOne({ username, password });
-
-    if (admin) {
-      res.redirect('/home');
-    } else {
-      res.render('admin', { error: 'Invalid username or password. Please try again.' });
-    }
-  } catch (error) {
-    console.error('Error during login:', error);
-    res.render('admin', { error: 'An error occurred. Please try again later.' });
+  if (username === 'admin' && password === 'admin') {
+    res.redirect('/dashboard'); // Redirect to the home page if credentials match
+  } else {
+    res.render('admin', { error: 'Invalid username or password. Please try again.' });
   }
 });
+
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

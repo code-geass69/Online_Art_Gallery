@@ -48,7 +48,7 @@
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
-            color: #ffffff;
+            color: #000000;
             font-weight: bold;
             cursor: pointer;
         }
@@ -73,11 +73,7 @@
     <div class="login-container">
         <h2 class="mb-4 text-center">Admin Login</h2>
 
-        <% if (typeof error !== 'undefined' && error !== null) { %>
-            <div class="alert alert-danger">
-                <%= error %>
-            </div>
-        <% } %>
+      
 
         <form action="/admin/login" method="POST">
             <div class="form-group">
@@ -92,7 +88,7 @@
             <button type="submit" class="btn btn-primary">LogIn</button>
         </form>
         <form action="/login">
-            <button type="submit" class="btn btn-primary" style="margin-top: 10px;">LogIn Page</button>
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Back</button>
         </form>
     </div>
 
