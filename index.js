@@ -92,18 +92,15 @@ app.post('/login', async (req, res) => {
   const { username, email } = req.body;
 
   try {
-    // Create a new user document
     const newUser = new User({
       username,
       email
     });
 
-    // Save the user to the database
     await newUser.save();
 
     res.render('home')
   } catch (error) {
-    // console.error('Error creating user:', error);
     res.status(500).send('Error creating user');
   }
 });
