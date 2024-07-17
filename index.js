@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -116,12 +118,13 @@ app.get('/admin/login', (req, res) => {
 app.post('/admin/login', (req, res) => {
   const { username, password } = req.body;
 
-  if (username === 'admin' && password === 'admin') {
-    res.redirect('/dashboard'); // Redirect to the home page if credentials match
+  if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD) {
+    res.redirect('/dashboard'); // Redirect to the dashboard if credentials match
   } else {
     res.render('admin', { error: 'Invalid username or password. Please try again.' });
   }
 });
+
 
 
 app.listen(port, () => {
