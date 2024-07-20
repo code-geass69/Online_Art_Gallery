@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -8,6 +7,7 @@ const bodyParser = require('body-parser');
 const Contact = require('./models/Contact');
 const Admin = require('./models/admin');
 const User = require('./models/User');
+
 const { initializeApp } = require('firebase/app');
 const { getStorage, ref, uploadBytes, getDownloadURL } = require('firebase/storage');
 
@@ -17,13 +17,27 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://localhost:27017/Online-Art-Gallery', {
 
-}).then(() => {
-  console.log('Connected to MongoDB');
-}).catch((err) => {
-  console.error('Error connecting to MongoDB', err);
+const uri = process.env.MONGODB_URI; // replace with your MongoDB Atlas URI
+const clientOptions = {
+  serverApi: {
+    version: '1',
+    strict: true,
+    deprecationErrors: true,
+  },
+};
+
+mongoose.connect(uri, clientOptions)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Could not connect to MongoDB', err));
+
+app.use((req, res, next) => {
+  if (mongoose.connection.readyState !== 1) {
+    return res.status(500).send('Database connection is not established');
+  }
+  next();
 });
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDO5FdlnDW-PqXSrBpX_tVho_gBYEWFRFo",
@@ -54,22 +68,22 @@ app.get('/contact', (req, res) => {
 });
 
 app.post('/contact', async (req, res) => {
+  const { name, email, message } = req.body;
+
+  if (!name || !email || !message) {
+    return res.status(400).send('All fields are required');
+  }
+
+  const contact = new Contact({ name, email, message });
+
   try {
-    const { name, email, message } = req.body;
-
-    const newContact = new Contact({
-      name,
-      email,
-      message
-    });
-
-    await newContact.save();
-    res.status(200).send('Contact information saved successfully');
+    await contact.save();
+    res.status(201).send('Contact information saved successfully');
   } catch (error) {
+    console.error('Error saving contact information:', error);
     res.status(500).send('Error saving contact information');
   }
 });
-
 app.get('/canvas', (req, res) => {
   res.render('utils/canvas');
 });

@@ -5,31 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/public/js/tailwind-config.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <%- include('../../components/Links.html') %>
-    <link rel="stylesheet" href="/css/contact.css">
+        <link rel="stylesheet" href="/css/contact.css">
 
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('#contact-form').addEventListener('submit', async (e) => {
                     e.preventDefault();
-                    const formData = new FormData(e.target);
-                    const response = await fetch('/contact', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(Object.fromEntries(formData))
-                    });
 
-                    if (response.ok) {
-                        e.target.reset();
-                        alert('Contact information saved successfully');
-                    } else {
-                        alert('Error saving contact information');
+                    const formData = new FormData(e.target);
+                    const jsonData = Object.fromEntries(formData.entries());
+
+                    try {
+                        const response = await fetch('/contact', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(jsonData)
+                        });
+
+                        if (response.ok) {
+                            e.target.reset();
+                            alert('Contact information saved successfully');
+                        } else {
+                            const errorText = await response.text();
+                            alert('Error saving contact information: ' + errorText);
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('An error occurred while saving contact information');
                     }
                 });
             });
@@ -55,7 +64,7 @@
                             <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email"
                                 value="" required>
                         </div>
-                    </div>  
+                    </div>
                     <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required></textarea>
 
                     <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
@@ -68,16 +77,16 @@
                 <!-- FORM END--------------------------------------------------------------------------------------------------- -->
 
                 <!-- INFORMATION ----------------------------------------------------------------------------------------------- -->
- 
+
                 <div class="direct-contact-container">
                     <ul class="contact-list">
                         <li class="list-item"><span class="contact-text place">Mumbai,
-                                    Maharashtra</span></i></li>
-                        <li class="list-item"><span class="contact-text phone"><a
-                                        href="tel:1-212-555-5555" title="Give me a call">+91 9167356290</a></span></i>
+                                Maharashtra</span></i></li>
+                        <li class="list-item"><span class="contact-text phone"><a href="tel:1-212-555-5555"
+                                    title="Give me a call">+91 9167356290</a></span></i>
                         </li>
-                        <li class="list-item"><span class="contact-text gmail pl-[10px]"><a
-                                        href="mailto:#" title="Send me an email">atharvmore30@gmail.com</a></span></i>
+                        <li class="list-item"><span class="contact-text gmail pl-[10px]"><a href="mailto:#"
+                                    title="Send me an email">atharvmore30@gmail.com</a></span></i>
                         </li>
                     </ul>
 
@@ -98,7 +107,7 @@
 
                     <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
                 </div>
-<!-- INFORMATION END ----------------------------------------------------------------------------------------------- -->
+                <!-- INFORMATION END ----------------------------------------------------------------------------------------------- -->
             </div>
         </section>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
