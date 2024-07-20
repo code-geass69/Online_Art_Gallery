@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const uri = process.env.MONGODB_URI; // replace with your MongoDB Atlas URI
+const uri = 'mongodb+srv://atharvmore30:AtharvMore26@contact.djfdlsl.mongodb.net/?retryWrites=true&w=majority&appName=Contact'; // replace with your MongoDB Atlas URI
 const clientOptions = {
   serverApi: {
     version: '1',
