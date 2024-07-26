@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/css/style.css">
     <%- include('../../components/Links.html') %>
         <link rel="stylesheet" href="/css/contact.css">
-
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('#contact-form').addEventListener('submit', async (e) => {
@@ -31,7 +30,7 @@
 
                         if (response.ok) {
                             e.target.reset();
-                            showCustomAlert('The Artist will be with you shortly!','Thank You!🌻')
+                            showCustomAlert('The Artist will be with you shortly!', 'Thank You!🌻')
                         } else {
                             const errorText = await response.text();
                             alert('Error saving contact information: ' + errorText);
@@ -75,49 +74,28 @@
                                 value="" required>
                         </div>
                     </div>
-                    <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required></textarea>
-
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message"
+                                required></textarea>
+                        </div>
+                    </div>
                     <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
                         <div class="alt-send-button">
-                            <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
+                            <i class="fa fa-paper-plane"></i>
                         </div>
                     </button>
-
                 </form>
-                <!-- FORM END--------------------------------------------------------------------------------------------------- -->
-
-                <!-- INFORMATION ----------------------------------------------------------------------------------------------- -->
-
-                <div class="direct-contact-container">
-                    <ul class="contact-list">
-                        <li class="list-item"><span class="contact-text place">Mumbai, Maharashtra</span></i></li>
-                        <li class="list-item"><span class="contact-text phone"><a href="tel:1-212-555-5555"
-                                    title="Give me a call">+91 9167356290</a></span></i></li>
-                        <li class="list-item"><span class="contact-text gmail pl-[10px]"><a href="mailto:#"
-                                    title="Send me an email">atharvmore30@gmail.com</a></span></i></li>
-                    </ul>
-
-                    <ul class="social-media-list">
-                        <li><a href="https://www.instagram.com/atharv_more_26/" class="contact-icon">
-                                <i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="https://github.com/code-geass69"class="contact-icon">
-                                <i class="fa fa-github" aria-hidden="true"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/atharv-more/" class="contact-icon">
-                                <i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                    </ul>
-
-                    <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
-                </div>
-                <!-- INFORMATION END ----------------------------------------------------------------------------------------------- -->
             </div>
         </section>
 
-        <!-- Include Custom Alert Modal -->
         <%- include('../partials/customAlert') %>
-
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-                crossorigin="anonymous"></script>
+                crossorigin="anonymous">
+                </script>
+            <%- include('../partials/footer') %>
+
 </body>
 
 </html>
