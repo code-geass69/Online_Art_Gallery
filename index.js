@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -18,7 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const uri = 'mongodb+srv://atharvmore30:AtharvMore26@contact.djfdlsl.mongodb.net/?retryWrites=true&w=majority&appName=Contact'; // replace with your MongoDB Atlas URI
+const uri = process.env.MONGO_URI;
 const clientOptions = {
   serverApi: {
     version: '1',
@@ -38,15 +39,15 @@ app.use((req, res, next) => {
   next();
 });
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyDO5FdlnDW-PqXSrBpX_tVho_gBYEWFRFo",
-  authDomain: "art-gallery-2003.firebaseapp.com",
-  projectId: "art-gallery-2003",
-  storageBucket: "art-gallery-2003.appspot.com",
-  messagingSenderId: "503377346450",
-  apppId: "1:503377346450:web:c7fd20c9f19b1aab87cb4b"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
 };
+
 
 const appp = initializeApp(firebaseConfig);
 

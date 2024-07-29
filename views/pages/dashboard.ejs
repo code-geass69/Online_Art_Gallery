@@ -1,35 +1,502 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/public/js/tailwind-config.js"></script>
-    <%- include('../../components/Links.html') %>
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-            rel="stylesheet">
-
-        <style>
-            .poppins-semibold {
-                font-family: "Poppins", sans-serif;
-                font-weight: 600;
-                font-style: normal;
-            }
-        </style>
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
 </head>
 
-<body>
-<h2>
-    Welcome Admin
-</h2>
+<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <title>Admin Panel</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+            html {
+                line-height: 1.5;
+                -webkit-text-size-adjust: 100%;
+                -moz-tab-size: 4;
+                -o-tab-size: 4;
+                tab-size: 4;
+                font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                font-feature-settings: normal;
+                font-variation-settings: normal;
+            }
+
+            body {
+                margin: 0;
+                line-height: inherit;
+            }
+
+            hr {
+                height: 0;
+                color: inherit;
+                border-top-width: 1px;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: inherit;
+            }
+
+            button,
+            select {
+                text-transform: none;
+            }
+
+            progress {
+                vertical-align: baseline;
+            }
+
+            ::-webkit-inner-spin-button,
+            ::-webkit-outer-spin-button {
+                height: auto;
+            }
+
+            ::-webkit-search-decoration {
+                -webkit-appearance: none;
+            }
+
+            ::-webkit-file-upload-button {
+                -webkit-appearance: button;
+                font: inherit;
+
+            }
+
+            input::-moz-placeholder,
+            textarea::-moz-placeholder {
+                opacity: 1;
+                color: #9ca3af;
+            }
+
+            input::placeholder,
+            textarea::placeholder {
+                opacity: 1;
+                color: #9ca3af;
+            }
+
+            button,
+            [role="button"] {
+                cursor: pointer;
+            }
+
+            :disabled {
+                cursor: default;
+            }
+
+            [hidden] {
+                display: none;
+            }
+
+
+            @media (min-width: 768px) {
+                .main.active {
+                    margin-left: 0px;
+                    width: 100%;
+                }
+            }
+
+            .before\:mr-3::before {
+                content: var(--tw-content);
+                margin-right: 0.75rem;
+            }
+
+            .before\:h-1::before {
+                content: var(--tw-content);
+                height: 0.25rem;
+            }
+
+            .before\:w-1::before {
+                content: var(--tw-content);
+                width: 0.25rem;
+            }
+
+            .before\:rounded-full::before {
+                content: var(--tw-content);
+                border-radius: 9999px;
+            }
+
+            .before\:bg-gray-300::before {
+                content: var(--tw-content);
+                --tw-bg-opacity: 1;
+                background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+            }
+
+            .hover\:bg-gray-50:hover {
+                --tw-bg-opacity: 1;
+                background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+            }
+
+            .hover\:bg-gray-950:hover {
+                --tw-bg-opacity: 1;
+                background-color: rgb(3 7 18 / var(--tw-bg-opacity));
+            }
+
+            .hover\:text-blue-500:hover {
+                --tw-text-opacity: 1;
+                color: rgb(59 130 246 / var(--tw-text-opacity));
+            }
+
+            .hover\:text-blue-600:hover {
+                --tw-text-opacity: 1;
+                color: rgb(37 99 235 / var(--tw-text-opacity));
+            }
+
+            .hover\:text-gray-100:hover {
+                --tw-text-opacity: 1;
+                color: rgb(243 244 246 / var(--tw-text-opacity));
+            }
+
+            .hover\:text-gray-600:hover {
+                --tw-text-opacity: 1;
+                color: rgb(75 85 99 / var(--tw-text-opacity));
+            }
+
+            .focus\:border-blue-500:focus {
+                --tw-border-opacity: 1;
+                border-color: rgb(59 130 246 / var(--tw-border-opacity));
+            }
+
+            .group:hover .group-hover\:text-blue-500 {
+                --tw-text-opacity: 1;
+                color: rgb(59 130 246 / var(--tw-text-opacity));
+            }
+
+            .group.selected .group-\[\.selected\]\:block {
+                display: block;
+            }
+
+            .group.selected .group-\[\.selected\]\:rotate-90 {
+                --tw-rotate: 90deg;
+                transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            }
+
+            .group.active .group-\[\.active\]\:bg-gray-800 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+            }
+
+            .group.selected .group-\[\.selected\]\:bg-gray-950 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(3 7 18 / var(--tw-bg-opacity));
+            }
+
+            .group.active .group-\[\.active\]\:text-white {
+                --tw-text-opacity: 1;
+                color: rgb(255 255 255 / var(--tw-text-opacity));
+            }
+
+            .group.selected .group-\[\.selected\]\:text-gray-100 {
+                --tw-text-opacity: 1;
+                color: rgb(243 244 246 / var(--tw-text-opacity));
+            }
+
+            @media (min-width: 768px) {
+                .md\:ml-64 {
+                    margin-left: 16rem;
+                }
+
+                .md\:hidden {
+                    display: none;
+                }
+
+                .md\:w-\[calc\(100\%-256px\)\] {
+                    width: calc(100% - 256px);
+                }
+
+                .md\:grid-cols-2 {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .lg\:col-span-2 {
+                    grid-column: span 2 / span 2;
+                }
+
+                .lg\:grid-cols-2 {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
+                .lg\:grid-cols-3 {
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                }
+            }
+        </style>
+    </head>
+
+    <body class="text-gray-800 font-inter">
+        <!--sidenav -->
+        <div class="fixed left-0 top-0 w-64 h-full bg-[#f8f4f3] p-4 z-50 sidebar-menu transition-transform">
+            <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+                <h2 class="font-bold text-2xl">a_raandom_artist</span>
+                </h2>
+            </a>
+            <ul class="mt-4">
+                <span class="text-gray-400 font-bold">ARTIST</span>
+                <li class="mb-1 group">
+                    <a href=""
+                        class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                        <i class="ri-home-2-line mr-3 text-lg"></i>
+                        <span class="text-sm">Dashboard</span>
+                    </a>
+                </li>
+                <li class="mb-1 group">
+                    <a href=""
+                        class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                        <i class='bx bx-user mr-3 text-lg'></i>
+                        <span class="text-sm">Art Categories</span>
+                        <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
+                    </a>
+                    <ul class="pl-7 mt-2 hidden group-[.selected]:block">
+                        <li class="mb-4">
+                            <a href=""
+                                class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Anime</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href=""
+                                class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Canvas</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href=""
+                                class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Celebs</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href=""
+                                class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Doodles</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href=""
+                                class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Sketches</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mb-1 group">
+                    <a href=""
+                        class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                        <i class='bx bx-list-ul mr-3 text-lg'></i>
+                        <span class="text-sm">Data</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
+        <!-- end sidenav -->
+
+        <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main">
+            <!-- navbar -->
+            <div class="py-2 px-6 bg-[#f8f4f3] flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+                <button type="button" class="text-lg text-gray-900 font-semibold sidebar-toggle">
+                    <i class="ri-menu-line"></i>
+                </button>
+
+                <ul class="ml-auto flex items-center">
+
+                    <!-- Full Screen Button -->
+                    <button id="fullscreen-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            class="hover:bg-gray-100 rounded-full" viewBox="0 0 24 24" style="fill: gray;">
+                            <path d="M5 5h5V3H3v7h2zm5 14H5v-5H3v7h7zm11-5h-2v5h-5v2h7zm-2-4h2V3h-7v2h5z"></path>
+                        </svg>
+                    </button>
+                    <script>
+                        const fullscreenButton = document.getElementById('fullscreen-button');
+
+                        fullscreenButton.addEventListener('click', toggleFullscreen);
+
+                        function toggleFullscreen() {
+                            if (document.fullscreenElement) {
+                                // If already in fullscreen, exit fullscreen
+                                document.exitFullscreen();
+                            } else {
+                                // If not in fullscreen, request fullscreen
+                                document.documentElement.requestFullscreen();
+                            }
+                        }
+                    </script>
+                    <!-- Full Screen Button -->
+
+
+                    <li class="dropdown ml-3">
+                        <button type="button" class="dropdown-toggle flex items-center">
+                            <div class="flex-shrink-0 w-10 h-10 relative">
+                                <div class="p-1 bg-white rounded-full focus:outline-none focus:ring">
+                                    <img class="w-8 h-8 rounded-full"
+                                        src="https://laravelui.spruko.com/tailwind/ynex/build/assets/images/faces/9.jpg"
+                                        alt="" />
+                                    <div
+                                        class="top-0 left-7 absolute w-3 h-3 bg-lime-400 border-2 border-white rounded-full animate-ping">
+                                    </div>
+                                    <div
+                                        class="top-0 left-7 absolute w-3 h-3 bg-lime-500 border-2 border-white rounded-full">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-2 md:block text-left">
+                                <h2 class="text-sm font-semibold text-gray-800">Atharv More</h2>
+                                <p class="text-xs text-gray-500">The Artist</p>
+                            </div>
+                        </button>
+                        <ul
+                            class="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
+                            <li>
+                                <a href="#"
+                                    class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-[#f84525] hover:bg-gray-50">Profile</a>
+                            </li>
+
+                            <li>
+                                <form action="/login">
+                                    <a role="menuitem"
+                                        class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-[#f84525] hover:bg-gray-50 cursor-pointer"
+                                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                                        Log Out
+                                    </a>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- end navbar -->
+        </main>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+            // start: Sidebar
+            const sidebarToggle = document.querySelector('.sidebar-toggle')
+            const sidebarOverlay = document.querySelector('.sidebar-overlay')
+            const sidebarMenu = document.querySelector('.sidebar-menu')
+            const main = document.querySelector('.main')
+            sidebarToggle.addEventListener('click', function (e) {
+                e.preventDefault()
+                main.classList.toggle('active')
+                sidebarOverlay.classList.toggle('hidden')
+                sidebarMenu.classList.toggle('-translate-x-full')
+            })
+            sidebarOverlay.addEventListener('click', function (e) {
+                e.preventDefault()
+                main.classList.add('active')
+                sidebarOverlay.classList.add('hidden')
+                sidebarMenu.classList.add('-translate-x-full')
+            })
+            document.querySelectorAll('.sidebar-dropdown-toggle').forEach(function (item) {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault()
+                    const parent = item.closest('.group')
+                    if (parent.classList.contains('selected')) {
+                        parent.classList.remove('selected')
+                    } else {
+                        document.querySelectorAll('.sidebar-dropdown-toggle').forEach(function (i) {
+                            i.closest('.group').classList.remove('selected')
+                        })
+                        parent.classList.add('selected')
+                    }
+                })
+            })
+            // end: Sidebar
+
+
+
+            // start: Popper
+            const popperInstance = {}
+            document.querySelectorAll('.dropdown').forEach(function (item, index) {
+                const popperId = 'popper-' + index
+                const toggle = item.querySelector('.dropdown-toggle')
+                const menu = item.querySelector('.dropdown-menu')
+                menu.dataset.popperId = popperId
+                popperInstance[popperId] = Popper.createPopper(toggle, menu, {
+                    modifiers: [
+                        {
+                            name: 'offset',
+                            options: {
+                                offset: [0, 8],
+                            },
+                        },
+                        {
+                            name: 'preventOverflow',
+                            options: {
+                                padding: 24,
+                            },
+                        },
+                    ],
+                    placement: 'bottom-end'
+                });
+            })
+            document.addEventListener('click', function (e) {
+                const toggle = e.target.closest('.dropdown-toggle')
+                const menu = e.target.closest('.dropdown-menu')
+                if (toggle) {
+                    const menuEl = toggle.closest('.dropdown').querySelector('.dropdown-menu')
+                    const popperId = menuEl.dataset.popperId
+                    if (menuEl.classList.contains('hidden')) {
+                        hideDropdown()
+                        menuEl.classList.remove('hidden')
+                        showPopper(popperId)
+                    } else {
+                        menuEl.classList.add('hidden')
+                        hidePopper(popperId)
+                    }
+                } else if (!menu) {
+                    hideDropdown()
+                }
+            })
+
+            function hideDropdown() {
+                document.querySelectorAll('.dropdown-menu').forEach(function (item) {
+                    item.classList.add('hidden')
+                })
+            }
+            function showPopper(popperId) {
+                popperInstance[popperId].setOptions(function (options) {
+                    return {
+                        ...options,
+                        modifiers: [
+                            ...options.modifiers,
+                            { name: 'eventListeners', enabled: true },
+                        ],
+                    }
+                });
+                popperInstance[popperId].update();
+            }
+            function hidePopper(popperId) {
+                popperInstance[popperId].setOptions(function (options) {
+                    return {
+                        ...options,
+                        modifiers: [
+                            ...options.modifiers,
+                            { name: 'eventListeners', enabled: false },
+                        ],
+                    }
+                });
+            }
+            // end: Popper
+
+
+        </script>
+
+    </body>
+
+    </html>
 </body>
 
 </html>
