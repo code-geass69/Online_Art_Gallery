@@ -134,7 +134,7 @@ app.post('/admin/login', (req, res) => {
   const { username, password } = req.body;
 
   if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD) {
-    res.redirect('/dashboard'); // Redirect to the dashboard if credentials match
+    res.redirect('/dashboard'); 
   } else {
     res.render('admin', { error: 'Invalid username or password. Please try again.' });
   }
