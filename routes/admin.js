@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Admin = require('/Online_Art_Gallery/models/admin');
+const Admin = require('../models/admin');
 
 router.get('/admin/login', (req, res) => {
   res.render('admin', { error: null });
