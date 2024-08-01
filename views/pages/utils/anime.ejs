@@ -27,7 +27,6 @@
 
 <body>
     <%- include('../../partials/navbar') %>
-
         <div id="card-area">
             <div class="wrapper">
                 <div class="box-area">
@@ -107,6 +106,21 @@
                             <p>The Snow Queen - Queen of Arendelle</p>
                         </div>
                     </div>
+                    <% artworks.forEach(art=> { %>
+                        <div class="box">
+                            <a href="<%= art.instagramUrl %>" target="_blank">
+                                <img src="<%= art.imageUrl %>" alt="<%= art.title %>">
+                                <div class="overlay">
+                                    <h3>
+                                        <%= art.title %>
+                                    </h3>
+                                    <p>
+                                        <%= art.description %>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <% }); %>
                 </div>
             </div>
         </div>
