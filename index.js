@@ -14,7 +14,6 @@ const { getStorage, ref, uploadBytes, getDownloadURL } = require('firebase/stora
 
 const homeRoutes = require('./routes/home');
 const artRoutes = require('./routes/art');
-const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 
 const app = express();
@@ -61,7 +60,6 @@ app.set('views', path.join(__dirname, 'views/pages'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', homeRoutes);
 app.use('/', artRoutes);
-app.use('/', authRoutes);
 app.use('/', adminRoutes);
 
 
